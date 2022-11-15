@@ -1,9 +1,9 @@
 import unittest
+
 import weather
 
 
 class WeatherTests(unittest.TestCase):
-
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.maxDiff = None
@@ -12,7 +12,7 @@ class WeatherTests(unittest.TestCase):
             ["2021-07-03T07:00:00+08:00", 57, 68],
             ["2021-07-04T07:00:00+08:00", 56, 62],
             ["2021-07-05T07:00:00+08:00", 55, 61],
-            ["2021-07-06T07:00:00+08:00", 53, 62]
+            ["2021-07-06T07:00:00+08:00", 53, 62],
         ]
         self.example_two = [
             ["2020-06-19T07:00:00+08:00", 47, 46],
@@ -22,5 +22,5 @@ class WeatherTests(unittest.TestCase):
             ["2020-06-23T07:00:00+08:00", 52, 71],
             ["2020-06-24T07:00:00+08:00", 52, 67],
             ["2020-06-25T07:00:00+08:00", 48, 66],
-            ["2020-06-26T07:00:00+08:00", 53, 66]
+            ["2020-06-26T07:00:00+08:00", 53, 66],
         ]
