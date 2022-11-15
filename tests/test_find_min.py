@@ -1,9 +1,9 @@
 import unittest
+
 import weather
 
 
 class FindMinTests(unittest.TestCase):
-
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.maxDiff = None
@@ -43,4 +43,3 @@ class FindMinTests(unittest.TestCase):
         expected_result = (49.0, 5)
         result = weather.find_min(temperatures)
         self.assertEqual(result, expected_result)
-
