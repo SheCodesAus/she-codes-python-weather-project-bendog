@@ -95,7 +95,7 @@ def load_data_from_csv(csv_file: str) -> list[list]:
     return output_list
 
 
-def find_min(weather_data: list[float | int]) -> None | tuple[float, int]:
+def find_min(weather_data: list[float | int]) -> tuple | tuple[float, int]:
     """Calculates the minimum value in a list of numbers.
 
     Args:
@@ -115,7 +115,7 @@ def find_min(weather_data: list[float | int]) -> None | tuple[float, int]:
     return found_val, found_id
 
 
-def find_max(weather_data: list[float | int]) -> tuple[float, int]:
+def find_max(weather_data: list[float | int]) -> tuple | tuple[float, int]:
     """Calculates the maximum value in a list of numbers.
 
     Args:
@@ -142,13 +142,21 @@ def generate_summary(weather_data: list[list]) -> str:
     Returns:
         A string containing the summary information.
     """
-    date_list = [x[0] for x in weather_data]
-    min_list = [x[1] for x in weather_data]
-    max_list = [x[2] for x in weather_data]
+    # date_list = [x[0] for x in weather_data]
+    # min_list = [x[1] for x in weather_data]
+    # max_list = [x[2] for x in weather_data]
+    date_list = []
+    min_list = []
+    max_list = []
+    for row in weather_data:
+        date_list.append(row[0])
+        min_list.append(row[1])
+        max_list.append(row[2])
+
     low_val, low_id = find_min(min_list)
     high_val, high_id = find_max(max_list)
-    high_avg = calculate_mean(max_list)
     low_avg = calculate_mean(min_list)
+    high_avg = calculate_mean(max_list)
     return f"""{len(weather_data)} Day Overview
   The lowest temperature will be {format_temperature(convert_f_to_c(low_val))}, and will occur on {convert_date(date_list[low_id])}.
   The highest temperature will be {format_temperature(convert_f_to_c(high_val))}, and will occur on {convert_date(date_list[high_id])}.
